@@ -15,6 +15,24 @@ public class CursoBean implements Parcelable{
     private String tempoDeDuracao;
     private String coordenador;
 
+    public static CursoBean curso1 = new CursoBean(1, "ADS", "tecnologico", "superior", "2 anos e meio", "lia");
+    public static CursoBean curso2 = new CursoBean(2,"Curso 2", "Descrição do curso 2", "nivel do curso 2", "tempo do curso 2", "coordenador do curso 2");
+    public static CursoBean curso3 = new CursoBean(3,"Curso 3", "Descrição do curso 3", "nivel do curso 3", "tempo do curso 3", "coordenador do curso 3");
+    public static CursoBean curso4 = new CursoBean(4,"Curso 4", "Descrição do curso 4", "nivel do curso 4", "tempo do curso 4", "coordenador do curso 4");
+    public static CursoBean curso5 = new CursoBean(5,"Curso 5", "Descrição do curso 5", "nivel do curso 5", "tempo do curso 5", "coordenador do curso 5");
+
+    public static final Creator<CursoBean> CREATOR = new Creator<CursoBean>() {
+        @Override
+        public CursoBean createFromParcel(Parcel in) {
+            return new CursoBean(in);
+        }
+
+        @Override
+        public CursoBean[] newArray(int size) {
+            return new CursoBean[size];
+        }
+    };
+
     public int getId() {
         return id;
     }
@@ -91,7 +109,6 @@ public class CursoBean implements Parcelable{
         titulacao = in.readString();
         tempoDeDuracao = in.readString();
         coordenador = in.readString();
-
     }
 
     public CursoBean(Parcel in) {
@@ -105,5 +122,8 @@ public class CursoBean implements Parcelable{
         this.titulacao = setTitulacao(titulacao);
         this.tempoDeDuracao = setTempoDeDuracao(tempoDeDuracao);
         this.coordenador = setCoordenador(coordenador);
+    }
+    public CursoBean(){
+
     }
 }
